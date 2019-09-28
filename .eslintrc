@@ -1,0 +1,45 @@
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "react-native/react-native": true
+  },
+  "parser": "babel-eslint",
+  "plugins": ["react-native"],
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "rules": {
+    "complexity": ["error", 7],
+    "react/jsx-closing-bracket-location": 0,
+    "react/jsx-closing-tag-location": 0,
+    "react/jsx-curly-spacing": 0,
+    "react/jsx-equals-spacing": 0,
+    "react/jsx-first-prop-new-line": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-indent-props": 0,
+    "react/jsx-max-props-per-line": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-tag-spacing": 0,
+    "react/jsx-wrap-multilines": 0,
+    "react/jsx-props-no-multi-spaces": 0,
+    "react/self-closing-comp": 0,
+    "no-use-before-define": 0,
+    "import/no-cycle": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-restricted-properties": [
+      0,
+      {
+        "object": "Math",
+        "property": "pow"
+      }
+    ],
+    "no-useless-constructor": 0,
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 0,
+    "react-native/no-inline-styles": 2,
+    "react-native/sort-styles": 0,
+    "react-native/no-color-literals": 2,
+    "react-native/no-raw-text": 0
+  }
+}
