@@ -43,8 +43,8 @@ export default {
 
   /* Header */
   defaultHeader: {
-    borderBottomWidth: 0,
     backgroundColor: colors.background,
+    borderBottomWidth: 0,
     elevation: 0,
     height: 64,
   },

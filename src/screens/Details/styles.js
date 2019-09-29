@@ -9,4 +9,7 @@ export default StyleSheet.create({
     backgroundColor: colors.background,
     flex: 1,
   },
+  headerLeft: {
+    ...styles.paddingHorizontal,
+  },
 });
