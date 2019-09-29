@@ -11,4 +11,7 @@ export default StyleSheet.create({
   headerTitle: {
     ...styles.headerTitle,
   },
+  headerRight: {
+    ...styles.paddingHorizontal,
+  },
 });

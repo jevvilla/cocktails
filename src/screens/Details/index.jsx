@@ -9,7 +9,7 @@ class Details extends PureComponent {
   static navigationOptions = ({ navigation }) => ({
     headerLeft: (
       <TouchableOpacity style={styles.headerLeft} onPress={() => navigation.goBack(null)}>
-        <Icon name="ios-arrow-round-back" size={45} color={colors.white} />
+        <Icon name="ios-arrow-round-back" size={35} color={colors.white} />
       </TouchableOpacity>
     ),
   });
