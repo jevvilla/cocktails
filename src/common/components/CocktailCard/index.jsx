@@ -4,9 +4,9 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 import styles from './styles';
 
-const CocktailCard = ({ uri, title }) => {
+const CocktailCard = ({ uri, title, onPress }) => {
   return (
-    <TouchableOpacity activeOpacity={0.7} style={styles.touchable}>
+    <TouchableOpacity onPress={onPress} activeOpacity={0.7} style={styles.touchable}>
       <View style={styles.container}>
         <View style={styles.descriptionWrapper}>
           <Text numberOfLines={2} style={styles.title}>
@@ -24,6 +24,7 @@ const CocktailCard = ({ uri, title }) => {
 CocktailCard.propTypes = {
   title: PropTypes.string.isRequired,
   uri: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 export default CocktailCard;

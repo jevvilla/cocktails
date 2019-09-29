@@ -1,3 +1,5 @@
+import colors from './colors';
+
 export const STANDARD_SPACING = 16;
 export const STANDARD_RADIUS = 8;
 
@@ -38,4 +40,18 @@ export default {
     shadowRadius: value,
     shadowOffset: { width: 0, height: 0 },
   }),
+
+  /* Header */
+  defaultHeader: {
+    borderBottomWidth: 0,
+    backgroundColor: colors.background,
+    elevation: 0,
+    height: 64,
+  },
+
+  headerTitle: {
+    color: colors.white,
+    fontSize: 22,
+    opacity: 0.8,
+  },
 };
