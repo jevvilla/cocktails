@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { navigationShape } from '../../common/propTypes';
@@ -10,25 +10,67 @@ import CocktailsCardList from './components/CocktailsCardList';
 import styles from './styles';
 
 class Overview extends PureComponent {
-  static navigationOptions = () => ({
-    headerTitle: <Text style={styles.headerTitle}>{strings.OVERVIEW_HEADER_TITLE}</Text>,
-    headerRight: (
-      <TouchableOpacity style={styles.headerRight}>
-        <Icon name="ios-search" size={35} color={colors.white} />
-      </TouchableOpacity>
-    ),
-  });
+  static navigationOptions = ({ navigation }) => {
+    const isSearching = navigation.getParam('isSearching');
+    const setSearchingState = navigation.getParam('setSearchingState');
+
+    return {
+      headerRight: isSearching ? (
+        <TouchableOpacity style={styles.headerRight}>
+          <Icon
+            name="ios-close-circle-outline"
+            size={35}
+            color={colors.white}
+            onPress={setSearchingState}
+          />
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity style={styles.headerRight}>
+          <Icon name="ios-search" size={35} color={colors.white} onPress={setSearchingState} />
+        </TouchableOpacity>
+      ),
+      headerTitle: isSearching ? (
+        <TextInput
+          autoCapitalize="none"
+          placeholder={strings.SEARCH_COCKTAIL_PLACEHOLDER}
+          placeholderTextColor={colors.whiteOpacity}
+          style={styles.searchField}
+        />
+      ) : (
+        <Text style={styles.headerTitle}>{strings.OVERVIEW_HEADER_TITLE}</Text>
+      ),
+    };
+  };
 
   constructor(props) {
     super(props);
+    const { navigation } = props;
+
+    navigation.setParams({
+      setSearchingState: this.setSearchingState,
+    });
     this.state = {
       drinks: [],
+      isSearching: false,
     };
   }
 
   componentDidMount() {
     this.fetchCocktails();
   }
+
+  setSearchingState = () => {
+    const { navigation } = this.props;
+
+    this.setState(prevProps => {
+      const isSearching = !prevProps.isSearching;
+      navigation.setParams({
+        isSearching,
+      });
+
+      return { isSearching };
+    });
+  };
 
   fetchCocktails = async () => {
     const response = await fetch(

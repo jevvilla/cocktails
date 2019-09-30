@@ -14,4 +14,11 @@ export default StyleSheet.create({
   headerRight: {
     ...styles.paddingHorizontal,
   },
+  searchField: {
+    width: 280,
+    height: 40,
+    fontSize: 18,
+    color: colors.white,
+    backgroundColor: colors.background,
+  },
 });
