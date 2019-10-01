@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
 
-// eslint-disable-next-line import/prefer-default-export
 export const navigationShape = PropTypes.shape({
   navigate: PropTypes.func,
   setParams: PropTypes.func,
   goBack: PropTypes.func,
+});
+
+export const cocktailsReducerShape = PropTypes.shape({
+  isFetching: PropTypes.bool,
+  error: PropTypes.string,
+  cocktails: PropTypes.arrayOf(PropTypes.string),
 });
