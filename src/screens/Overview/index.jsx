@@ -1,12 +1,16 @@
 import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { debounce, isEmpty } from 'lodash';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-import { navigationShape } from '../../common/propTypes';
+import { navigationShape, cocktailsReducerShape } from '../../common/propTypes';
 import strings from '../../common/strings';
 import colors from '../../common/colors';
 import CocktailsCardList from './components/CocktailsCardList';
+import * as cocktailsActions from '../../actions/cocktails';
 
 import styles from './styles';
 
@@ -56,9 +60,9 @@ class Overview extends PureComponent {
     });
     this.state = {
       drinks: [],
-      filteredDrinks: [],
+      // filteredDrinks: [],
       isSearching: false,
-      textToSearch: null,
+      // textToSearch: null,
     };
   }
 
@@ -97,25 +101,21 @@ class Overview extends PureComponent {
     });
   };
 
-  fetchCocktails = async () => {
-    const response = await fetch(
-      'https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass',
-    );
+  fetchCocktails = () => {
+    const { actions } = this.props;
 
-    if (response.ok) {
-      const { drinks } = await response.json();
-      this.setState({ drinks });
-    }
+    actions.fetchCocktails();
   };
 
   render() {
-    const { drinks, filteredDrinks, textToSearch } = this.state;
-    const { navigation } = this.props;
-    const data = !isEmpty(textToSearch) ? filteredDrinks : drinks;
+    // const { drinks, filteredDrinks, textToSearch } = this.state;
+    const { navigation, cocktailsReducer } = this.props;
+    const { cocktails } = cocktailsReducer;
+    // const data = !isEmpty(textToSearch) ? filteredDrinks : drinks;
 
     return (
       <View style={styles.container}>
-        <CocktailsCardList data={data} navigation={navigation} />
+        <CocktailsCardList data={cocktails.drinks} navigation={navigation} />
       </View>
     );
   }
@@ -123,6 +123,24 @@ class Overview extends PureComponent {
 
 Overview.propTypes = {
   navigation: navigationShape.isRequired,
+  cocktailsReducer: cocktailsReducerShape.isRequired,
+  fetchCocktails: PropTypes.func.isRequired,
+  actions: PropTypes.objectOf(PropTypes.func).isRequired,
 };
 
-export default Overview;
+function mapStateToProps(state) {
+  return {
+    cocktailsReducer: state.cocktailsReducer,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(cocktailsActions, dispatch),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Overview);
