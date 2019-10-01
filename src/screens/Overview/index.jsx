@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { debounce, isEmpty } from 'lodash';
 
 import { navigationShape } from '../../common/propTypes';
 import strings from '../../common/strings';
@@ -13,6 +14,7 @@ class Overview extends PureComponent {
   static navigationOptions = ({ navigation }) => {
     const isSearching = navigation.getParam('isSearching');
     const setSearchingState = navigation.getParam('setSearchingState');
+    const onChangeTextHandler = navigation.getParam('onChangeTextHandler');
 
     return {
       headerRight: isSearching ? (
@@ -31,13 +33,15 @@ class Overview extends PureComponent {
       ),
       headerTitle: isSearching ? (
         <TextInput
-          autoCapitalize="none"
           placeholder={strings.SEARCH_COCKTAIL_PLACEHOLDER}
           placeholderTextColor={colors.whiteOpacity}
           style={styles.searchField}
+          onChangeText={onChangeTextHandler}
         />
       ) : (
-        <Text style={styles.headerTitle}>{strings.OVERVIEW_HEADER_TITLE}</Text>
+        <TouchableOpacity onPress={setSearchingState}>
+          <Text style={styles.headerTitle}>{strings.OVERVIEW_HEADER_TITLE}</Text>
+        </TouchableOpacity>
       ),
     };
   };
@@ -48,16 +52,37 @@ class Overview extends PureComponent {
 
     navigation.setParams({
       setSearchingState: this.setSearchingState,
+      onChangeTextHandler: this.onChangeTextHandler,
     });
     this.state = {
       drinks: [],
+      filteredDrinks: [],
       isSearching: false,
+      textToSearch: null,
     };
   }
 
   componentDidMount() {
     this.fetchCocktails();
   }
+
+  onChangeTextHandler = debounce(textToSearch => {
+    this.setState({ textToSearch }, () => {
+      this.searchCocktails(textToSearch);
+    });
+  }, 600);
+
+  searchCocktails = textToSearch => {
+    const { drinks } = this.state;
+
+    if (!isEmpty(textToSearch)) {
+      const filteredDrinks = drinks.filter(drink => {
+        return drink.strDrink.startsWith(textToSearch);
+      });
+
+      this.setState({ filteredDrinks });
+    }
+  };
 
   setSearchingState = () => {
     const { navigation } = this.props;
@@ -68,7 +93,7 @@ class Overview extends PureComponent {
         isSearching,
       });
 
-      return { isSearching };
+      return { isSearching, textToSearch: '' };
     });
   };
 
@@ -84,12 +109,13 @@ class Overview extends PureComponent {
   };
 
   render() {
-    const { drinks } = this.state;
+    const { drinks, filteredDrinks, textToSearch } = this.state;
     const { navigation } = this.props;
+    const data = !isEmpty(textToSearch) ? filteredDrinks : drinks;
 
     return (
       <View style={styles.container}>
-        <CocktailsCardList data={drinks} navigation={navigation} />
+        <CocktailsCardList data={data} navigation={navigation} />
       </View>
     );
   }
