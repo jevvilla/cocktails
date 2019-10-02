@@ -40,6 +40,20 @@
     "react-test-renderer": "16.9.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "testEnvironment": "jsdom",
+    "testRegex": "/__tests__/.*.test.jsx?$",
+    "setupFilesAfterEnv": [
+      "./__tests__/setup.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)"
+    ],
+    "coverageReporters": [
+      "html"
+    ]
   }
 }
