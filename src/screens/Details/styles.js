@@ -12,4 +12,7 @@ export default StyleSheet.create({
   headerLeft: {
     ...styles.paddingHorizontal,
   },
+  headerTitle: {
+    ...styles.headerTitle,
+  },
 });

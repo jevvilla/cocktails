@@ -12,6 +12,7 @@ class Details extends PureComponent {
         <Icon name="ios-arrow-round-back" size={35} color={colors.white} />
       </TouchableOpacity>
     ),
+    headerTitle: <Text style={styles.headerTitle}>{navigation.getParam('headerTitle')}</Text>,
   });
 
   render() {
