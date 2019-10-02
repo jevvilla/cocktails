@@ -36,4 +36,10 @@ export default StyleSheet.create({
     fontSize: 16,
     opacity: 0.4,
   },
+  leftIngredients: {
+    color: colors.black,
+    fontSize: 12,
+    opacity: 0.4,
+    marginTop: 4,
+  },
 });
