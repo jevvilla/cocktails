@@ -1,4 +1,4 @@
-const getFilteredIngredients = ({ details }) => {
+export const getFilteredIngredients = ({ details }) => {
   const keys = Object.keys(details[0]);
   const ingredients = [];
 
@@ -12,4 +12,17 @@ const getFilteredIngredients = ({ details }) => {
   return ingredients;
 };
 
-export default getFilteredIngredients;
+export const getIngredientsAndMeasurements = item => {
+  const ingredients = getFilteredIngredients(item);
+  const keys = Object.keys(item.details[0]);
+  const measurements = [];
+
+  for (let i = 0; i <= keys.length; i += 1) {
+    const measure = item.details[0][`strMeasure${i}`];
+    if (measure) {
+      measurements.push(`${measure} - ${ingredients[i]}`);
+    }
+  }
+
+  return measurements;
+};
