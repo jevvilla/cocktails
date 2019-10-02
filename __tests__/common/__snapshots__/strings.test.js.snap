@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`strings should match snapshot 1`] = `
+Object {
+  "HOW_TO_PREPARE": "How to prepate",
+  "NO_SEARCH_RESULTS": "No results for: ",
+  "OVERVIEW_HEADER_TITLE": "Random drinks 0.1",
+  "SEARCH_COCKTAIL_PLACEHOLDER": "Search a cocktail...",
+}
+`;
