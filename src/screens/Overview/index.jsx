@@ -119,7 +119,15 @@ class Overview extends PureComponent {
         {!isEmpty(data) ? (
           <CocktailsCardList data={data} navigation={navigation} />
         ) : (
-          <ActivityIndicator color={colors.white} />
+          <View style={styles.loading}>
+            {isEmpty(textToSearch) ? (
+              <ActivityIndicator color={colors.white} />
+            ) : (
+              <Text
+                style={styles.noResultsMessage}
+              >{`${strings.NO_SEARCH_RESULTS} ${textToSearch}`}</Text>
+            )}
+          </View>
         )}
       </View>
     );

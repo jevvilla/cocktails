@@ -21,4 +21,13 @@ export default StyleSheet.create({
     color: colors.white,
     backgroundColor: colors.background,
   },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  noResultsMessage: {
+    fontSize: 18,
+    color: colors.whiteOpacity,
+  },
 });
