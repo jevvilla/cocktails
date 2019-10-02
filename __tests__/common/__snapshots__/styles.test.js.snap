@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`styles STANDARD_SPACING should match snapshot 1`] = `16`;
+
+exports[`styles should match snapshot 1`] = `
+Object {
+  "borderRadius": Object {
+    "borderRadius": 8,
+  },
+  "defaultHeader": Object {
+    "backgroundColor": "#41AFC7",
+    "borderBottomWidth": 0,
+    "elevation": 0,
+    "height": 64,
+  },
+  "headerTitle": Object {
+    "color": "#fff",
+    "fontSize": 22,
+    "opacity": 0.8,
+  },
+  "marginBottom": Object {
+    "marginBottom": 16,
+  },
+  "padding": Object {
+    "padding": 16,
+  },
+  "paddingHorizontal": Object {
+    "paddingHorizontal": 16,
+  },
+  "paddingRightHalf": Object {
+    "paddingRight": 16,
+  },
+  "paddingVertical": Object {
+    "paddingVertical": 16,
+  },
+  "shadow": [Function],
+}
+`;
