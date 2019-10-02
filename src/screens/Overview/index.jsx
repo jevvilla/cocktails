@@ -125,8 +125,12 @@ class Overview extends PureComponent {
 Overview.propTypes = {
   navigation: navigationShape.isRequired,
   cocktailsReducer: cocktailsReducerShape.isRequired,
-  fetchCocktails: PropTypes.func.isRequired,
+  fetchCocktails: PropTypes.func,
   actions: PropTypes.objectOf(PropTypes.func).isRequired,
+};
+
+Overview.defaultProps = {
+  fetchCocktails: () => {},
 };
 
 function mapStateToProps(state) {
