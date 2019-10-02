@@ -5,6 +5,7 @@ import styles from '../../common/styles';
 
 export default StyleSheet.create({
   container: {
+    ...styles.paddingVertical,
     ...styles.paddingHorizontal,
     backgroundColor: colors.background,
     flex: 1,
