@@ -59,10 +59,9 @@ class Overview extends PureComponent {
       onChangeTextHandler: this.onChangeTextHandler,
     });
     this.state = {
-      drinks: [],
-      // filteredDrinks: [],
+      filteredDrinks: [],
       isSearching: false,
-      // textToSearch: null,
+      textToSearch: null,
     };
   }
 
@@ -77,13 +76,15 @@ class Overview extends PureComponent {
   }, 600);
 
   searchCocktails = textToSearch => {
-    const { drinks } = this.state;
+    const { cocktailsReducer } = this.props;
+    const { cocktails } = cocktailsReducer;
 
     if (!isEmpty(textToSearch)) {
+      const { drinks } = cocktails;
+
       const filteredDrinks = drinks.filter(drink => {
         return drink.strDrink.startsWith(textToSearch);
       });
-
       this.setState({ filteredDrinks });
     }
   };
@@ -108,14 +109,14 @@ class Overview extends PureComponent {
   };
 
   render() {
-    // const { drinks, filteredDrinks, textToSearch } = this.state;
+    const { filteredDrinks, textToSearch } = this.state;
     const { navigation, cocktailsReducer } = this.props;
     const { cocktails } = cocktailsReducer;
-    // const data = !isEmpty(textToSearch) ? filteredDrinks : drinks;
+    const data = !isEmpty(textToSearch) ? filteredDrinks : cocktails.drinks;
 
     return (
       <View style={styles.container}>
-        <CocktailsCardList data={cocktails.drinks} navigation={navigation} />
+        <CocktailsCardList data={data} navigation={navigation} />
       </View>
     );
   }
