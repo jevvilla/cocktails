@@ -64,7 +64,7 @@ class CocktailsCardList extends PureComponent {
 
 CocktailsCardList.propTypes = {
   navigation: navigationShape.isRequired,
-  data: PropTypes.arrayOf(PropTypes.string).isRequired,
+  data: PropTypes.arrayOf(PropTypes.object, PropTypes.string).isRequired,
 };
 
 export default CocktailsCardList;

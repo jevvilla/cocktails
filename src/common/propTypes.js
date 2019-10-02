@@ -9,5 +9,7 @@ export const navigationShape = PropTypes.shape({
 export const cocktailsReducerShape = PropTypes.shape({
   isFetching: PropTypes.bool,
   error: PropTypes.string,
-  cocktails: PropTypes.arrayOf(PropTypes.string),
+  cocktails: PropTypes.oneOfType({
+    drinks: PropTypes.arrayOf(PropTypes.object, PropTypes.string).isRequired,
+  }),
 });

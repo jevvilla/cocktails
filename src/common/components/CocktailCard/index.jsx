@@ -7,9 +7,13 @@ import styles from './styles';
 const renderIngredients = ingredients => {
   return ingredients.map((ingredient, index) => {
     if (index === 2) {
-      return <Text style={styles.leftIngredients}>{ingredient}</Text>;
+      return (
+        <Text key={ingredient} style={styles.leftIngredients}>
+          {ingredient}
+        </Text>
+      );
     }
-    return <Text style={styles.ingredient}>{`\u2022 ${ingredient}`}</Text>;
+    return <Text key={ingredient} style={styles.ingredient}>{`\u2022 ${ingredient}`}</Text>;
   });
 };
 
