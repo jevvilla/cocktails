@@ -6,14 +6,21 @@ import { take } from 'lodash';
 import { navigationShape } from '../../../../common/propTypes';
 import CocktailCard from '../../../../common/components/CocktailCard';
 import * as routes from '../../../../navigation/routes';
-import getFilteredIngredients from '../../../../common/tools';
+import { getFilteredIngredients, getIngredientsAndMeasurements } from '../../../../common/tools';
 
 import styles from './styles';
 
 class CocktailsCardList extends PureComponent {
   navigate = item => {
     const { navigation } = this.props;
-    navigation.navigate(routes.DETAILS, { headerTitle: item.strDrink });
+    const measures = getIngredientsAndMeasurements(item);
+
+    navigation.navigate(routes.DETAILS, {
+      headerTitle: item.strDrink,
+      uri: item.strDrinkThumb,
+      instructions: item.details[0].strInstructions,
+      measures,
+    });
   };
 
   getIngredients = item => {
