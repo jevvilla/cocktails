@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`colors should match snapshot 1`] = `
+Object {
+  "background": "#41AFC7",
+  "black": "#000",
+  "white": "#fff",
+  "whiteOpacity": "rgba(255, 255, 255, 0.5)",
+}
+`;
