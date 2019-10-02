@@ -9,13 +9,17 @@ import * as routes from '../../../../navigation/routes';
 import styles from './styles';
 
 class Overview extends PureComponent {
-  navigate = () => {
+  navigate = item => {
     const { navigation } = this.props;
-    navigation.navigate(routes.DETAILS);
+    navigation.navigate(routes.DETAILS, { headerTitle: item.strDrink });
   };
 
   renderItem = ({ item }) => (
-    <CocktailCard uri={item.strDrinkThumb} title={item.strDrink} onPress={this.navigate} />
+    <CocktailCard
+      uri={item.strDrinkThumb}
+      title={item.strDrink}
+      onPress={() => this.navigate(item)}
+    />
   );
 
   keyExtractor = item => item.idDrink;
