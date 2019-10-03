@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Details navigationOptions navigationOptions match snapshot 1`] = `
+Object {
+  "headerLeft": <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "paddingHorizontal": 16,
+      }
+    }
+  >
+    <Icon
+      allowFontScaling={false}
+      color="#fff"
+      name="ios-arrow-round-back"
+      size={35}
+    />
+  </TouchableOpacity>,
+  "headerTitle": <Text
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 22,
+        "opacity": 0.8,
+      }
+    }
+  />,
+}
+`;
+
+exports[`Details should match the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#41AFC7",
+      "flex": 1,
+      "paddingHorizontal": 16,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "borderRadius": 8,
+        "height": 650,
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1.3,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "headerTitle",
+          }
+        }
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "paddingVertical": 16,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 16,
+            "opacity": 0.4,
+          }
+        }
+      >
+        2 oz - Absolut Citron
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 16,
+            "opacity": 0.4,
+          }
+        }
+      >
+        1/2 oz - Orange Curacao
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 16,
+            "opacity": 0.4,
+          }
+        }
+      >
+        1 splash - Strawberry liqueur
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 16,
+            "opacity": 0.4,
+          }
+        }
+      >
+        1 oz - Orange juice
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontSize": 16,
+              "opacity": 0.4,
+            },
+            Object {
+              "paddingVertical": 16,
+            },
+          ]
+        }
+      >
+        • How to prepate
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 16,
+            "opacity": 0.4,
+          }
+        }
+      >
+        instructions
+      </Text>
+    </View>
+  </View>
+</View>
+`;
