@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CocktailCard should render the time correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "borderRadius": 8,
+      "elevation": 4,
+      "marginBottom": 16,
+      "opacity": 1,
+      "shadowOffset": Object {
+        "height": 0,
+        "width": 0,
+      },
+      "shadowOpacity": 0.2,
+      "shadowRadius": 4,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "borderRadius": 8,
+        "flexDirection": "row",
+        "height": 180,
+        "justifyContent": "space-between",
+        "padding": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <Text
+        numberOfLines={2}
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 22,
+            "marginBottom": 16,
+            "opacity": 0.6,
+          }
+        }
+      >
+        9 1/2 Weeks
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 16,
+            "opacity": 0.4,
+          }
+        }
+      >
+        • 2 oz 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 16,
+            "opacity": 0.4,
+          }
+        }
+      >
+        • 1/2 oz 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 12,
+            "marginTop": 4,
+            "opacity": 0.4,
+          }
+        }
+      >
+        1 splash 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#000",
+            "fontSize": 16,
+            "opacity": 0.4,
+          }
+        }
+      >
+        • 1 oz 
+      </Text>
+    </View>
+    <Image
+      source={
+        Object {
+          "uri": "https://www.thecocktaildb.com/images/media/drink/xvwusr1472669302.jpg",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 8,
+          "width": 150,
+        }
+      }
+    />
+  </View>
+</View>
+`;
